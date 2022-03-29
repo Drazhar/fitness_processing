@@ -8,8 +8,8 @@ from src.libra_weight import import_and_delete
 
 db_client = InfluxDBClient(host='192.168.0.2', port=8086, username='admin', password='B9CCujOBCY')
 setup_database(db_client, "training")
-#client.drop_measurement("endurance")
-#client.alter_retention_policy("autogen",duration="INF")
+#db_client.drop_measurement("endurance")
+#db_client.alter_retention_policy("autogen",duration="INF")
 
 gpx_directory = "."
 for filename in os.listdir(gpx_directory):
