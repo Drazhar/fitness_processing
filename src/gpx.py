@@ -63,10 +63,10 @@ def import_and_archive(gpx_file, db_client):
       "measurement": "endurance",
       "time": track_time,
       "fields": {
-        "cardio": cardio_time,
-        "aerobic": aerobic_time,
-        "anaerobic": anaerobic_time,
-        "vo2max": vo2max_time
+        "cardio": float(cardio_time),
+        "aerobic": float(aerobic_time),
+        "anaerobic": float(anaerobic_time),
+        "vo2max": float(vo2max_time)
       }
     }
   ]
