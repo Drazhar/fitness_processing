@@ -1,5 +1,7 @@
-from influxdb import InfluxDBClient
-db_client = InfluxDBClient(host='192.168.0.2', port=8086, username='admin', password='B9CCujOBCY')
+from src.get_db_client import get_db_client
+
+
+db_client = get_db_client()
 
 db_client.switch_database("training")
 print(db_client.get_list_series())

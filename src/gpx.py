@@ -5,6 +5,7 @@ from gpxcsv import gpxtolist
 from src.bcolors import bcolors
 from src.bar_plot import bar_plot
 
+
 def import_and_archive(gpx_file, db_client):
   print(f"Processing {bcolors.BOLD}{gpx_file}{bcolors.ENDC}:")
   df = pd.DataFrame(gpxtolist(gpx_file))
@@ -55,7 +56,7 @@ def import_and_archive(gpx_file, db_client):
     print(f"... {bcolors.OKBLUE}Cardio    60%-70%: {cardio_low} - {aerobic_low} bpm -> {round(cardio_time/60,2)} min {round(cardio_time / overall_time * 100, 1)}%{bcolors.ENDC}")
     print(f"... {bcolors.OKGREEN}Aerobic   70%-80%: {aerobic_low} - {aerobic_high} bpm -> {round(aerobic_time/60,2)} min {round(aerobic_time / overall_time * 100, 1)}%{bcolors.ENDC}")
     print(f"... {bcolors.WARNING}Anaerobic 80%-90%: {aerobic_high} - {anaerobic_high} bpm -> {round(anaerobic_time/60,2)} min {round(anaerobic_time / overall_time * 100, 1)}%{bcolors.ENDC}")
-    print(f"... {bcolors.FAIL}VO2_max  90%-100%: {anaerobic_high} - {estimated_max_hr} bpm -> {round(vo2max_time/60,2)} min {round(vo2max_time / overall_time * 100, 1)}%{bcolors.ENDC}")
+    print(f"... {bcolors.FAIL}VO2_max      >90%: {anaerobic_high} - {estimated_max_hr} bpm -> {round(vo2max_time/60,2)} min {round(vo2max_time / overall_time * 100, 1)}%{bcolors.ENDC}")
     print("... ", end="", sep="")
     bar_plot(52, [[cardio_time, bcolors.OKBLUE], [aerobic_time, bcolors.OKGREEN], [anaerobic_time, bcolors.WARNING], [vo2max_time, bcolors.FAIL]])
 

@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 import os
 import re
-from influxdb import InfluxDBClient
 from src.setup_database import setup_database
 from src.gpx import import_and_archive
 from src.libra_weight import import_and_delete
+from src.get_db_client import get_db_client
 
-db_client = InfluxDBClient(host='192.168.0.2', port=8086, username='admin', password='B9CCujOBCY')
+
+db_client = get_db_client()
+
 setup_database(db_client, "training")
-#db_client.drop_measurement("endurance")
-#db_client.alter_retention_policy("autogen",duration="INF")
 
 gpx_directory = "."
 for filename in os.listdir(gpx_directory):
