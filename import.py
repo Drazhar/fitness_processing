@@ -17,7 +17,7 @@ for filename in os.listdir(gpx_directory):
     gpx_file = os.path.join(gpx_directory, filename)
     import_and_archive(gpx_file, db_client)
 
-libra_csv_dir = "/home/drazhar/Dropbox/Eigene Sachen/"
+libra_csv_dir = "/home/traphi/Dropbox/Eigene Sachen"
 for filename in os.listdir(libra_csv_dir):
   if re.search("Libra.*\.csv",filename,flags=re.IGNORECASE):
     csv_file = os.path.join(libra_csv_dir, filename)

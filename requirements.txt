@@ -1,0 +1,5 @@
+influxdb
+python-dotenv
+pandas
+gpxcsv
+plotext

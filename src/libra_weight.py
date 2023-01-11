@@ -13,7 +13,7 @@ def import_and_delete(csv_file, db_client):
   x = []
   y = []
   for i in range(df.shape[0]):
-    x.append((df.iloc[i]["date"] - pd.Timestamp.now()).days)
+    x.append((df.iloc[i]["date"] - pd.Timestamp.now("UTC")).days)
     y.append(df.iloc[i]["weight"])
     json_body.append({
         "measurement": "body",
@@ -25,7 +25,7 @@ def import_and_delete(csv_file, db_client):
   plt.plot(x, y)
   plt.plot_size(80, 10)
   plt.frame(False)
-  plt.colorless()
+  #plt.colorless()
   plt.show()
   write_success = db_client.write_points(json_body, time_precision='ms')
   print(f"... Successfully written into influxDB: {write_success}")
