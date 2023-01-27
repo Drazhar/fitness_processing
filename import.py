@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!./.venv/bin/python3
 import os
 import re
 from src.setup_database import setup_database
